@@ -6,7 +6,10 @@
     "dev": "next dev --turbo",
     "build": "next build --turbo",
     "start": "next start",
-    "lint": "eslint app components lib hooks --ignore-pattern node_modules/"
+    "lint": "eslint app components lib hooks --ignore-pattern node_modules/",
+    "db:generate": "drizzle-kit generate --config drizzle.config.ts",
+    "db:migrate": "drizzle-kit migrate --config drizzle.config.ts",
+    "db:push": "drizzle-kit push --config drizzle.config.ts"
   },
   "dependencies": {
     "@aws-sdk/client-rds-data": "latest",

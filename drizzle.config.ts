@@ -10,25 +10,26 @@ console.log("Loading database configuration...")
  */
 function parseDatabaseUrl(url: string) {
   try {
-    // Format: postgres://user:password@host:port/database
-    const regex = /postgres:\/\/([^:]+):([^@]+)@([^:]+):?(\d*)\/([^?]+)(\?.*)?/;
+    // Format: postgres://user:password@host:port/database or postgresql://...
+    const regex = /postgre(?:s|sql):\/\/([^:]+):([^@]+)@([^:\/]+):?(\d*)\/([^?]+)(\?.*)?/i;
     const match = url.match(regex);
     
     if (!match) {
       throw new Error("Invalid PostgreSQL connection string format");
     }
     
-    const [, user, password, host, , database, queryString] = match;
+  const [, user, password, host, port, database, queryString] = match;
     
     // Check if SSL is required from query string
-    const sslRequired = queryString?.includes("sslmode=require");
+    const sslRequired = queryString?.toLowerCase().includes("sslmode=require");
     
     return {
       host,
+      port: port ? Number(port) : undefined,
       user,
       password,
       database,
-      ssl: sslRequired ? "require" : true as true | "require",
+      ssl: sslRequired ? "require" : (true as true | "require"),
     };
   } catch (error) {
     console.error("Error parsing DATABASE_URL:", error);
