@@ -1,6 +1,21 @@
 import arcjet, { shield, detectBot, tokenBucket } from "@arcjet/next";
 import { NextResponse } from "next/server";
 
+/**
+ * Arcjet Security Protection API Route
+ * 
+ * This route demonstrates Arcjet's security features:
+ * - Shield: Protects against common attacks (SQL injection, XSS, etc.)
+ * - Bot Detection: Identifies and blocks automated requests
+ * - Rate Limiting: Token bucket algorithm to prevent abuse
+ * 
+ * NOTE: Arcjet should NOT be added to middleware.ts on Vercel free plan
+ * as it increases the middleware size beyond the 1MB Edge Function limit.
+ * Instead, use Arcjet protection on specific API routes or server actions.
+ * 
+ * Learn more: https://docs.arcjet.com/get-started
+ */
+
 const aj = arcjet({
   key: process.env.ARCJET_KEY!, // Get your site key from https://app.arcjet.com
   characteristics: ["userId"], // Track requests by a custom user ID
