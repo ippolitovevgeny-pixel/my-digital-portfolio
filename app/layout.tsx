@@ -18,9 +18,10 @@ import { AuthSync } from "@/components/auth-sync";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CyberShield | Cybersecurity Portfolio",
-  description: "Professional portfolio showcasing expertise in cybersecurity",
-    generator: 'v0.dev'
+  title: "Evgeny Ippolitov - ICT Customer Support Specialist",
+  description:
+    "Digital portfolio of Evgeny Ippolitov - ICT Customer Support Specialist with expertise in network engineering, system administration, and customer support.",
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -34,14 +35,8 @@ export default function RootLayout({
       <body className={inter.className}>
         {/* Include AuthSync component for auto user role assignment */}
         <AuthSync />
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <div className="flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <Toaster />
-          </div>
-        </ThemeProvider>
+        {children}
+        <Toaster />
       </body>
     </html>
     </ClerkProvider>
