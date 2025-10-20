@@ -32,7 +32,7 @@ export function Navigation() {
         <div className="text-xl font-bold text-primary">EI</div>
 
         <div className="hidden md:flex items-center gap-8">
-          {["about", "skills", "experience", "education", "projects", "contact"].map((item) => (
+          {["about", "skills", "experience", "education", "projects", "security", "contact"].map((item) => (
             <button
               key={item}
               onClick={() => scrollToSection(item)}
