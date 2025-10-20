@@ -2,6 +2,13 @@ import { Shield, Lock, Eye, Zap, Database, Server, Users, CheckCircle, AlertTria
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Security Plan | Comprehensive Security Architecture",
+  description: "Multi-layered security architecture with Arcjet protection, Clerk authentication, rate limiting, bot detection, and enterprise-grade security controls.",
+  keywords: ["security", "cybersecurity", "OWASP", "Arcjet", "authentication", "rate limiting", "bot detection"],
+}
 
 export default function SecurityPlanPage() {
   return (
