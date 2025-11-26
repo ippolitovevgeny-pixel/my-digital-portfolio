@@ -17,10 +17,7 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: "smooth" })
-  }
+
 
   return (
     <nav
@@ -32,15 +29,14 @@ export function Navigation() {
         <div className="text-xl font-bold text-primary">EI</div>
 
         <div className="hidden md:flex items-center gap-8">
-          {["about", "skills", "experience", "education", "projects", "security", "contact"].map((item) => (
-            <button
-              key={item}
-              onClick={() => scrollToSection(item)}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors capitalize"
-            >
-              {item}
-            </button>
-          ))}
+          <a href="/#about" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors capitalize">about</a>
+          <a href="/#skills" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors capitalize">skills</a>
+          <a href="/#experience" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors capitalize">experience</a>
+          <a href="/#education" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors capitalize">education</a>
+          <a href="/#projects" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors capitalize">projects</a>
+          <a href="/security" className="text-sm font-medium text-blue-600 hover:text-primary transition-colors capitalize">security</a>
+          <a href="/mcp-integration" className="text-sm font-medium text-cyan-600 hover:text-primary transition-colors capitalize">mcp integration</a>
+          <a href="/#contact" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors capitalize">contact</a>
         </div>
 
         <Button variant="ghost" size="icon" onClick={toggleTheme} className="hover:bg-primary/10">
